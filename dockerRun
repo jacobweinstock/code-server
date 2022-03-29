@@ -1,0 +1,13 @@
+docker run \
+  -d \
+  --restart always \
+  --name vscode \
+  -v ~/repos:/home/abc/repos \
+  -v ${PWD}/config/settings.json:/config/data/User/settings.json \
+  -m 4g \
+  -c 6 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/.ssh/:/home/abc/.ssh/ \
+  -v ~/.gitconfig:/home/abc/.gitconfig \
+  --net container:proxy \
+  vscode:3.6.2 
